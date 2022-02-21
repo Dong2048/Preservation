@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="aliyun" />
+      <option name="name" value="aliyun" />
+      <option name="url" value="https://maven.aliyun.com/nexus/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="http://maven.aliyun.com/mvn/view" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="EZ-Common-Release" />
+      <option name="name" value="EZ-Common-Release" />
+      <option name="url" value="http://60.28.43.195:10001/nexus/content/repositories/EZ-Common-Release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public" />
+      <option name="name" value="public" />
+      <option name="url" value="http://60.28.43.195:10001/nexus/content/repositories/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="GaiYa-Release" />
+      <option name="name" value="GaiYa-Release" />
+      <option name="url" value="http://60.28.43.195:10001/nexus/content/repositories/GaiYa-Release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="EZ-Common-Snapshots" />
+      <option name="name" value="EZ-Common-Snapshots" />
+      <option name="url" value="http://60.28.43.195:10001/nexus/content/repositories/EZ-Common-Snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="GaiYa-Snapshots" />
+      <option name="name" value="GaiYa-Snapshots" />
+      <option name="url" value="http://60.28.43.195:10001/nexus/content/repositories/GaiYa-Snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+  </component>
+</project>

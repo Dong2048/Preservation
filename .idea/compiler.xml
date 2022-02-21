@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Preservation" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="one-blog-api-gateway" target="1.8" />
+      <module name="one-blog-common" target="1.5" />
+      <module name="one-blog-config-client" target="1.5" />
+      <module name="one-blog-config-server-git" target="1.5" />
+      <module name="one-blog-core" target="1.5" />
+      <module name="one-blog-eureka-ribbon" target="1.5" />
+      <module name="one-blog-eureka-server" target="1.8" />
+      <module name="one-blog-feign" target="1.8" />
+      <module name="one-blog-monitor" target="1.8" />
+      <module name="one-blog-pom" target="1.5" />
+      <module name="one-blog-ribbon" target="1.8" />
+      <module name="Preservation" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Preservation" options="-parameters" />
+      <module name="one-blog-api-gateway" options="-parameters" />
+      <module name="one-blog-core" options="" />
+      <module name="one-blog-eureka-server" options="-parameters" />
+      <module name="one-blog-feign" options="-parameters" />
+      <module name="one-blog-monitor" options="-parameters" />
+      <module name="one-blog-ribbon" options="-parameters" />
+    </option>
+  </component>
+</project>
