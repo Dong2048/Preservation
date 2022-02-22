@@ -5,6 +5,7 @@ package top.shijue.preservation.web;/*
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.shijue.preservation.pojo.Food;
@@ -87,14 +88,52 @@ public class SaveFoodController {
      */
     @GetMapping("/shelfLifeListFind")
     public String shelfLifeListFind(String name,Long day){
-        try{
-            ShelfLife shelfLife =new ShelfLife();
+        try {
+            ShelfLife shelfLife = new ShelfLife();
             shelfLife.setName(name);
             shelfLife.setShelfLife(day);
             shelfLifeService.shelfLifeSave(shelfLife);
-        }catch (Exception e){
+        } catch (Exception e) {
             return "添加新的食物保质期清单没有成功，请联系系统管理员";
         }
-        return name+"添加食物字典表成功";
+        return name + "添加食物字典表成功";
+    }
+
+    /**
+     * siri快要过期的食物
+     */
+    @GetMapping("/overdueFoodFind")
+    public String overdueFoodFind() {
+        try {
+            String result0 = "";
+            String result3 = "";
+            String result7 = "";
+            String result30 = "";
+            List<Food> list = saveFoodService.findAll();
+            for (Food food : list) {
+                if (food.getRemainingShelfLife() <= 3) {
+                    result3 += food.getName() + ",剩余保质期：" + food.getRemainingShelfLife() + "天，";
+                } else if (food.getRemainingShelfLife() <= 7 && food.getRemainingShelfLife() >= 3) {
+                    result7 += food.getName() + ",剩余保质期：" + food.getRemainingShelfLife() + "天，";
+                } else if (food.getRemainingShelfLife() <= 0) {
+                    result0 += food.getName() + ",过期：" + Math.abs(food.getRemainingShelfLife()) + "天，";
+                } else {
+                    result30 += food.getName() + ",剩余保质期：" + food.getRemainingShelfLife() + "天，";
+                }
+            }
+
+            return "保质期剩余三天的食物有：" + result3 + "请尽快食用，保质期剩余七天的食物有：" + result7 + "保质期七天以上的食物有：" + result30 + "过期的食物有：" + result0 + "过期食物帮您保留记录一周，请您尽快处理掉，防止误食。";
+        } catch (Exception e) {
+            return "没有查询成功，请联系系统管理员";
+        }
+    }
+
+    @Scheduled(cron = "0 0 1 * * ?")
+    public void calculateShelfLife() {
+        List<Food> list = saveFoodService.findAll();
+        for (Food food : list) {
+            food.setRemainingShelfLife(food.getRemainingShelfLife() - 1);
+            saveFoodService.foodSave(food);
+        }
     }
 }
